@@ -1,0 +1,75 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  font-weight: normal;
+}
+
+h1, h3, span {
+  margin: 0;
+}
+
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+.whole-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.item-container {
+  display: flex;
+  width: 100%;
+  min-height: 20rem;
+  margin-bottom: 3rem;
+}
+
+.item{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: .5rem;
+  border: 1px solid black;
+  padding: .5rem;
+
+  background-color: aliceblue;
+}
+
+.btn {
+  padding: .5rem;
+  background-color: rgb(54, 52, 52);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  margin: 0 .5rem;
+  cursor: pointer;
+}
+
+.button-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.output, .item-total{
+  height: 3rem;
+  width: 5rem;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.total-price {
+  height: 4rem;
+  width: 10rem;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
