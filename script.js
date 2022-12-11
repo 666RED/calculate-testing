@@ -1,7 +1,6 @@
 const numOfItem = 3;
 
 const addButtons = Array.from(document.querySelectorAll('[data-add-button]'));
-const purchaseButtons = document.querySelectorAll('[data-purchase-button]');
 const removeButtons = document.querySelectorAll('[data-remove-button]');
 const prices = document.querySelectorAll('[data-price]');
 const totalPrice = document.querySelector('[data-total-price]');
@@ -15,14 +14,15 @@ function increaseQuantity(event){
   const buttonClicked = event.target;
   const itemContainer = buttonClicked.parentElement.parentElement;
   const output = itemContainer.querySelector('[data-output]');
-  const price = itemContainer.querySelector('[data-price]');
-  const singlePrice = itemContainer.querySelector('[data-single-price]');
   output.innerText++;
-  updateSinglePrice(output, price, singlePrice);
+  updateSinglePrice(itemContainer);
   updateTotalPrice();
 }
 
-function updateSinglePrice(output, price, singlePrice){
+function updateSinglePrice(itemContainer){
+  const output = itemContainer.querySelector('[data-output]');
+  const price = itemContainer.querySelector('[data-price]');
+  const singlePrice = itemContainer.querySelector('[data-single-price]');
   let total = parseFloat(output.innerText) * parseFloat(price.innerText.replace('RM', ''));
 
   singlePrice.innerText = `RM ${total}`;
@@ -36,4 +36,18 @@ function updateTotalPrice(){
   }
 
   totalPrice.innerText = `RM ${total}`;
+}
+
+for(let i = 0; i < numOfItem; i++){
+  const button = removeButtons[i];
+  button.addEventListener('click', decreaseQuantity);
+}
+
+function decreaseQuantity(event){
+  const buttonClick = event.target;
+  const itemContainer = buttonClick.parentElement.parentElement;
+  const output = itemContainer.querySelector('[data-output]');
+  output.innerText--;
+  updateSinglePrice(itemContainer);
+  updateTotalPrice();
 }
