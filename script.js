@@ -47,6 +47,9 @@ function decreaseQuantity(event){
   const buttonClick = event.target;
   const itemContainer = buttonClick.parentElement.parentElement;
   const output = itemContainer.querySelector('[data-output]');
+  if(output.innerText === '0'){
+    return;
+  }
   output.innerText--;
   updateSinglePrice(itemContainer);
   updateTotalPrice();
